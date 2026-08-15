@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markdown Reader</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 加载页 -->
+  <div id="welcome" class="welcome">
+    <div class="drop-zone" id="dropZone">
+      <div class="logo">⌬</div>
+      <h1>Markdown Reader</h1>
+      <p class="sub">把 <code>.md</code> 文件拖进来，或点击选择文件</p>
+      <p class="hint">本地渲染，文件不会上传</p>
+      <button id="openBtn" class="primary-btn">选择 Markdown 文件</button>
+      <input type="file" id="fileInput" accept=".md,.markdown,.mdown,.txt,text/markdown" hidden>
+    </div>
+  </div>
+
+  <!-- 阅读器 -->
+  <div id="reader" class="reader hidden">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-title">目录</span>
+        <button id="toggleSidebar" class="icon-btn" title="收起/展开侧边栏">◀</button>
+      </div>
+      <input type="text" id="searchInput" class="search-input" placeholder="搜索标题…（Esc 清除）">
+      <nav id="toc" class="toc"></nav>
+    </aside>
+
+    <main class="main">
+      <header class="toolbar">
+        <button id="openBtn2" class="tool-btn" title="打开文件">📂 打开</button>
+        <input type="file" id="fileInput2" accept=".md,.markdown,.mdown,.txt,text/markdown" hidden>
+        <span id="fileName" class="file-name">未命名</span>
+        <span class="spacer"></span>
+        <button id="copyBtn" class="tool-btn" title="复制渲染后的内容">复制</button>
+        <button id="exportBtn" class="tool-btn" title="导出为 HTML 文件">导出</button>
+      </header>
+      <div id="content" class="content"></div>
+    </main>
+  </div>
+
+  <!-- 搜索定位框 -->
+  <div id="matchBox" class="match-box hidden">
+    <span id="matchInfo">0/0</span>
+    <button id="matchPrev" class="match-btn" title="上一个">↑</button>
+    <button id="matchNext" class="match-btn" title="下一个">↓</button>
+    <button id="matchClose" class="match-btn" title="关闭">✕</button>
+  </div>
+
+  <!-- 返回顶部 -->
+  <button id="backTop" class="back-top hidden" title="返回顶部">↑</button>
+
+<script src="vendor/marked.min.js"></script>
+<script src="vendor/purify.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
